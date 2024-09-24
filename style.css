@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+}
+:root{
+    --a:0;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(58, 57, 57);
+    border-radius: 50px;
+}
+::-webkit-scrollbar{
+    border-radius: 50px;
+    background-color: rgb(167, 162, 162);
+}
+body{
+    overflow-x: hidden;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 50px;
+    background-color: #f4f4f4;
+    align-items: center;
+}
+
+.li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.li ul {
+    margin: 0px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    padding-right: 6px;
+    border-right: 2px solid;
+}
+
+.li ul:hover {
+    color: gray;
+}
+
+.li :last-child {
+    border: none;
+}
+
+.shoes {
+    margin-top: 30px;
+    position: sticky;
+    top: 30px;
+}
+
+.search {
+    display: flex;
+    width: 93%;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inp-search {
+    display: flex;
+    gap: 10px;
+}
+
+.search span {
+    font-weight: 700;
+}
+
+.inp {
+    border: 2px solid;
+    border-radius: 8px;
+    outline: none;
+    padding: 3px 15px;
+    font-size: 16px;
+}
+
+.search span {
+    font-size: 36px;
+}
+
+.relative {
+    position: relative;
+}
+.material-symbols-outlined{
+    cursor: pointer;
+}
+.ab {
+    position: absolute;
+    top: -13px;
+    right: -1px;
+    font-weight: 600;
+}
+.products{
+    width: 90%;
+    margin: auto;
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+    height: 65vh;
+    overflow: auto;
+}
+.sho{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    cursor: pointer;
+}
+.sho img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.img{
+    position: relative;
+    height: 40vh;
+
+}
+.img:hover{
+    --a:1;
+}
+.img .icon{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    transition: all 0.6s;
+    opacity: var(--a);
+}
+
+.icon span{
+    color: white;
+    font-size: 70px;
+}
+.sho :nth-child(2){
+    font-size: 17px;
+    font-weight: 600;
+}
+.sho :nth-child(3){
+    color: gray;
+    font-weight: 500;
+    
+}
+.sho :nth-child(4){
+    color: gray;
+
+}
+.cart{
+    position: fixed;
+    top: 30%;
+    left: 8%;
+    background: #f7f4f0;
+    width: 80%;
+    border-radius: 50px;
+    max-height: 60vh;
+    text-align: center;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+.item{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    margin: 15px 0px;
+}
+.image{
+    width: 105px;
+    height: 81px;
+}
+.image img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.icons{
+    display: flex;
+    font-size: 25px;
+    font-weight: bolder;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.cart >span{
+    position: absolute;
+    top: 3px;
+    right: 46px;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 7px 5px;
+}
+.plus,.min{
+    cursor: pointer;
+}
+.disabled{
+    color: gray;
+    cursor: not-allowed;
+}
+
+.alert{
+    position: absolute;
+    top: 37%;
+    right: -100%;
+    transition: all 0.2s;
+}
+.animate{
+    right: 37%;
+}
+.success {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 320px;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    background: #EDFBD8;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px -3px #111;
+  }
+  
+  .success__icon {
+    width: 20px;
+    height: 20px;
+    transform: translateY(-2px);
+    margin-right: 8px;
+  }
+  
+  .success__icon path {
+    fill: #84D65A;
+  }
+  
+  .success__title {
+    font-weight: 500;
+    font-size: 14px;
+    color: #2B641E;
+  }
+  
+  .success__close {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+  
+  .success__close path {
+    fill: #2B641E;
+  }
