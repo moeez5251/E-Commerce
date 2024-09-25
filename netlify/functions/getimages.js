@@ -3,7 +3,7 @@ const path = require("path");
 
 exports.handler = async (event, context) => {
   try {
-    const imagesDir ="../assets/images/";
+    const imagesDir = path.join(__dirname, "../assets/images/");
     let images = fs.readdirSync(imagesDir);
 
     return {
