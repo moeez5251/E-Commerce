@@ -1,26 +1,41 @@
+// functions/listImagesBySlug.js
+
 const fs = require("fs");
 const path = require("path");
 
 exports.handler = async (event, context) => {
   try {
-    const slug = event.path.split("/").pop();
-    const imagesDir = path.join(__dirname, `../assets/images/${slug}/`);
+    const imagesDir = path.join(process.cwd(), "assets/images/");
+    
+    const slug = event.path.split("/").pop(); 
 
-    // Check if the directory exists
-    if (!fs.existsSync(imagesDir)) {
-      throw new Error("Directory not found");
+    if (!slug || slug.trim() === "") {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: "Slug is required" }),
+      };
     }
 
-    let images = fs.readdirSync(imagesDir);
+    const specificImagesDir = path.join(imagesDir, slug);
+    
+    if (!fs.existsSync(specificImagesDir)) {
+      return {
+        statusCode: 404,
+        body: JSON.stringify({ error: "Directory not found for the specified slug" }),
+      };
+    }
 
+    const images = fs.readdirSync(specificImagesDir);
+    
     return {
       statusCode: 200,
       body: JSON.stringify(images),
     };
   } catch (error) {
+    console.error("Error reading images directory:", error.message);
     return {
-      statusCode: 404, // Change to 404 for not found errors
-      body: JSON.stringify({ message: "Unable to find that color or directory" }),
+      statusCode: 500,
+      body: JSON.stringify({ error: "Unable to read images directory", details: error.message }),
     };
   }
 };
