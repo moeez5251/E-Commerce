@@ -215,7 +215,7 @@ nav {
 
 .alert{
     position: absolute;
-    top: 37%;
+    top: 20%;
     right: -100%;
     transition: all 0.2s;
 }
