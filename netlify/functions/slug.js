@@ -6,7 +6,7 @@ exports.handler = async (event, context) => {
     const { slug } = event.pathParameters;
     const imagesDir =`../../assets/images/${slug}`;
     let images = fs.readdirSync(imagesDir);
-
+ 
     return {
       statusCode: 200,
       body: JSON.stringify(images),
