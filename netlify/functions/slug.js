@@ -3,8 +3,14 @@ const path = require("path");
 
 exports.handler = async (event, context) => {
   try {
-    const { slug } = event.pathParameters;
-    const imagesDir = path.join(__dirname, `../assets/images/${slug}`);
+    const slug = event.path.split("/").pop();
+    const imagesDir = path.join(__dirname, `../assets/images/${slug}/`);
+
+    // Check if the directory exists
+    if (!fs.existsSync(imagesDir)) {
+      throw new Error("Directory not found");
+    }
+
     let images = fs.readdirSync(imagesDir);
 
     return {
@@ -13,8 +19,8 @@ exports.handler = async (event, context) => {
     };
   } catch (error) {
     return {
-      statusCode: 500,
-      body: "Unable to Find that color",
+      statusCode: 404, // Change to 404 for not found errors
+      body: JSON.stringify({ message: "Unable to find that color or directory" }),
     };
   }
 };
