@@ -3,7 +3,7 @@ const path = require("path");
 exports.handler = async (event, context) => {
   try {
     const { slug } = event.pathParameters;
-    const imagesDir = path.resolve(__dirname, `../../assets/images/${slug}`);
+    const imagesDir = path.resolve(__dirname, `../../assets/Images/${slug}`);
     let images = fs.readdirSync(imagesDir);
     return {
       statusCode: 200,
