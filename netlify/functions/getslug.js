@@ -12,7 +12,8 @@ exports.handler = async (event, context) => {
       };
     }
 
-    const imagesDir = `assets/Images/${slug}`;
+    const imagesDir = path.resolve(__dirname+"../../../"+`assets/Images/${slug}`);
+    console.log(imagesDir);
 
     if (!fs.existsSync(imagesDir)) {
       return {
