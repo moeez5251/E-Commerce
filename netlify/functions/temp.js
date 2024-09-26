@@ -3,22 +3,24 @@ const path = require("path");
 
 exports.handler = async (event) => {
   try {
-    const imagesDir = path.join(__dirname, "../../assets/images");
-    
-    console.log("Images directory:", imagesDir);
-    console.log("Current working directory:", process.cwd());
+    const { slug } = event.queryStringParameters || {}; 
+    const imagesDir = path.join(process.cwd(), `assets/images/${slug}`);
 
-    if (!fs.existsSync(imagesDir)) {
-      console.error(`Directory not found: ${imagesDir}`);
+    if (!slug) {
       return {
-        statusCode: 404,
-        body: JSON.stringify({ error: `Directory not found: ${imagesDir}` }),
+        statusCode: 400,
+        body: JSON.stringify({ error: "Slug is required" }),
       };
     }
 
+    if (!fs.existsSync(imagesDir)) {
+      throw new Error(`Directory not found: ${imagesDir}`);
+    }
+
+    const images = fs.readdirSync(imagesDir);
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: "Directory exists." }),
+      body: JSON.stringify(images),
     };
   } catch (error) {
     console.error("Error:", error.message);
