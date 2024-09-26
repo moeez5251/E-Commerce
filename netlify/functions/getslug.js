@@ -4,7 +4,7 @@ const path = require("path");
 exports.handler = async (event) => {
   try {
     const slug = event.queryStringParameters.slug; 
-    const imagesDir = path.join(__dirname, `../../assets/images/${slug}/`); 
+    const imagesDir = path.join(__dirname, `../../public/assets/images/${slug}/`); 
 
     console.log("Requested slug:", slug);
     console.log("Images directory:", imagesDir);

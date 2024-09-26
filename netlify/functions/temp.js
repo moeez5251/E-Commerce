@@ -4,7 +4,7 @@ const path = require("path");
 exports.handler = async (event) => {
   try {
     const { slug } = event.queryStringParameters || {}; 
-    const imagesDir = path.join(process.cwd(), `assets/images/${slug}`);
+    const imagesDir = path.join(process.cwd(), `public/assets/images/${slug}`);
 
     if (!slug) {
       return {
