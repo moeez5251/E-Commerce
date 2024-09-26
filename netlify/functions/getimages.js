@@ -13,12 +13,20 @@ exports.handler = async (event, context) => {
 
     return {
       statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*', 
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
       body: JSON.stringify(images),
     };
   } catch (error) {
     console.error("Error reading images directory:", error.message);
     return {
       statusCode: 500,
+      headers: {
+        'Access-Control-Allow-Origin': '*', 
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
       body: JSON.stringify({ error: error.message }),
     };
   }
