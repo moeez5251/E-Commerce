@@ -15,13 +15,6 @@ exports.handler = async (event, context) => {
     const imagesDir = path.resolve(__dirname+"../../../"+`assets/Images/${slug}`);
     console.log(imagesDir);
 
-    if (!fs.existsSync(imagesDir)) {
-      return {
-        statusCode: 404,
-        body: JSON.stringify({ error: "Directory not found" }),
-      };
-    }
-
     let images = fs.readdirSync(imagesDir);
     return {
       statusCode: 200,
