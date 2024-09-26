@@ -3,8 +3,8 @@ const path = require("path");
 
 exports.handler = async (event) => {
   try {
-    const imagesDir = path.join(__dirname, "../../assets/images"); 
-
+    const imagesDir = path.join(__dirname, "../../assets/images");
+    
     console.log("Images directory:", imagesDir);
     console.log("Current working directory:", process.cwd());
 
