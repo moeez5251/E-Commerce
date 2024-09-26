@@ -1,6 +1,6 @@
 
 (async function main() {
-    let a = await fetch("http://localhost:3000");
+    let a = await fetch("https://chicfootwear.netlify.app/.netlify/functions/getimages");
     let b = await a.json();
     for (const element of b) {
         let fet = await fetch(`http://localhost:3000/${element}`)

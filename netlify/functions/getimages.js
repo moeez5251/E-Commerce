@@ -11,7 +11,7 @@ exports.handler = async (event, context) => {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Unable to read images directory" }),
+      body: JSON.stringify({ error: `${error}` }),
     };
   }
 };
