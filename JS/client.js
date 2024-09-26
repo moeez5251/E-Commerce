@@ -51,7 +51,7 @@
                     document.querySelectorAll(".item").forEach(e => {
                         e.querySelector(".plus").addEventListener("click", () => {
                             e.querySelector(".val").innerHTML++;
-                            e.querySelector(".Prices").innerHTML= e.querySelector(".val").innerHTML*e.querySelector(".Prices").innerHTML.split("$")[0] +"$";
+                            e.querySelector(".Prices").innerHTML = e.querySelector(".val").innerHTML * e.querySelector(".Prices").innerHTML.split("$")[0] + "$";
                         })
 
                         e.querySelector(".min").addEventListener("click", () => {
@@ -61,12 +61,12 @@
                                 if (confirm("Do You Want to Delete Item !")) {
                                     e.remove();
                                     document.querySelector(".ab").innerHTML--;
-                                    
+
                                 }
                                 return;
                             }
                             e.querySelector(".val").innerHTML--;
-                            e.querySelector(".Prices").innerHTML= e.querySelector(".val").innerHTML*e.querySelector(".Prices").innerHTML.split("$")[0] +"$";
+                            e.querySelector(".Prices").innerHTML = e.querySelector(".val").innerHTML * e.querySelector(".Prices").innerHTML.split("$")[0] + "$";
                         })
 
                     })
