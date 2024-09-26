@@ -12,7 +12,7 @@ exports.handler = async (event, context) => {
       };
     }
 
-    const imagesDir = path.resolve(__dirname+"../../../"+`assets/Images/${slug}`);
+    const imagesDir = path.resolve(__dirname+"../../../"+`assets/images/${slug}`);
     console.log(imagesDir);
 
     let images = fs.readdirSync(imagesDir);
