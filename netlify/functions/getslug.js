@@ -12,7 +12,7 @@ exports.handler = async (event, context) => {
       };
     }
 
-    const imagesDir = path.resolve(__dirname+"../../../"+`public/assets/images/${slug}`);
+    const imagesDir = path.resolve(__dirname+"../../../"+`assets/images/${slug}`);
     console.log(imagesDir);
 
     let images = fs.readdirSync(imagesDir);
@@ -23,7 +23,7 @@ exports.handler = async (event, context) => {
   } catch (error) {
     return {
       statusCode: 500,
-      body: `${error}`,
+      body: `${error},`,
     };
   }
 };
