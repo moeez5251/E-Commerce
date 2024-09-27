@@ -6,7 +6,7 @@ exports.handler = async (event, context) => {
     const imagesDir = path.join(__dirname, "../../assets/images/");
     console.log(imagesDir);
     console.log(path.join(__dirname, "../../public/assets/images/"))
-
+    console.log(path.join(__dirname, "/assets/images/"));
     if (!fs.existsSync(imagesDir)) {
       throw new Error(`Images directory not found: ${imagesDir}`);
     }
