@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 
 const getDirectories = (dir) => {
-  // Read the directory and filter for subdirectories
   return fs.readdirSync(dir).filter(file => {
     const filePath = path.join(dir, file);
     return fs.statSync(filePath).isDirectory();
@@ -13,7 +12,7 @@ export default async (req, context) => {
   try {
     const imagesDir = path.join(process.cwd(), "public/assets/images");
 
-    console.log("Looking for folders in directory:", imagesDir); // Debugging log
+    console.log("Looking for folders in directory:", imagesDir); 
 
     if (!fs.existsSync(imagesDir)) {
       throw new Error(`Images directory not found: ${imagesDir}`);
@@ -21,7 +20,7 @@ export default async (req, context) => {
 
     const folders = getDirectories(imagesDir);
 
-    console.log("Folders found:", folders); // Debugging log
+    console.log("Folders found:", folders); 
 
     return new Response(JSON.stringify(folders), {
       status: 200,

@@ -7,8 +7,8 @@ export default async (req, context) => {
     const slug = url.searchParams.get("slug");
     const imagesDir = path.join(process.cwd(), `public/assets/images/${slug}`);
 
-    console.log("Requested slug:", slug); // Debugging log
-    console.log("Looking for images in directory:", imagesDir); // Debugging log
+    console.log("Requested slug:", slug); 
+    console.log("Looking for images in directory:", imagesDir);
 
     if (!slug) {
       return new Response(JSON.stringify({ error: "Slug is required" }), {
@@ -29,7 +29,7 @@ export default async (req, context) => {
       file.endsWith('.jpg') || file.endsWith('.webp')
     );
 
-    console.log("Images found in slug:", images); // Debugging log
+    console.log("Images found in slug:", images); 
 
     return new Response(JSON.stringify(images), {
       status: 200,

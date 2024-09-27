@@ -1,17 +1,1 @@
-{
-  "name": "nike",
-  "version": "1.0.0",
-  "main": "JS/server.js",
-  "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Xheikh",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.21.0",
-    "nodemon": "^3.1.7"
-  }
-}
+{"type":"commonjs"}
