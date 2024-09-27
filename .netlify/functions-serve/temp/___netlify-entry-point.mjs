@@ -1,1 +1,1 @@
-import * as bootstrap from './___netlify-bootstrap.mjs';import * as func from './netlify/functions/temp.cjs';const funcModule = typeof func.default === "function" ? func : func.default;export const handler = bootstrap.getLambdaHandler(funcModule)
+import * as bootstrap from './___netlify-bootstrap.mjs';import * as func from './netlify/functions/temp.mjs';const funcModule = typeof func.default === "function" ? func : func.default;export const handler = bootstrap.getLambdaHandler(funcModule)
