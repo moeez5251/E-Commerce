@@ -359,4 +359,9 @@ nav {
     nav{
         padding: 3px 0;
     }
+    .cart {
+        left: 2vw;
+        width: 95vw;
+        border-radius: 14px;
+    }
   }
