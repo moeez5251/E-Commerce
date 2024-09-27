@@ -3,10 +3,10 @@ const path = require("path");
 
 exports.handler = async (event) => {
   try {
-    const { queryStringParameters } = event;
-    const slug = queryStringParameters && queryStringParameters.slug; // Get slug from query parameters
-    const imagesDir = path.join(process.cwd(), "public/assets/images", slug);
-
+    // Retrieve the slug from query parameters
+    const slug = event.queryStringParameters?.slug; 
+    const imagesDir = path.join(process.cwd(), `public/assets/images/${slug}`);
+    
     if (!slug) {
       return {
         statusCode: 400,
@@ -14,10 +14,12 @@ exports.handler = async (event) => {
       };
     }
 
+    // Check if the directory exists
     if (!fs.existsSync(imagesDir)) {
       throw new Error(`Directory not found: ${imagesDir}`);
     }
 
+    // Read images from the directory
     const images = fs.readdirSync(imagesDir);
     return {
       statusCode: 200,
