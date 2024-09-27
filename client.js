@@ -1,11 +1,12 @@
 (async function main() {
     let a = await fetch("http://localhost:8888/.netlify/functions/getimages");
     let b = await a.json();
+    document.querySelector(".products").innerHTML="";
     for (const element of b) {
         let fet = await fetch(`http://localhost:8888/.netlify/functions/getslug?slug=${element}`)
         let response = await fet.json();
         console.log(response);
-        for (const links of response.images) {
+        for (const links of response) {
             console.log(links);
             if (links.endsWith(".webp")) {
                 let a = links.split("+")
