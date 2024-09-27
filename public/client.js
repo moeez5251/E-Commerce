@@ -1,11 +1,12 @@
-
 (async function main() {
-    let a = await fetch("https://stridestyle.netlify.app/.netlify/functions/getimages/");
+    let a = await fetch("http://localhost:8888/.netlify/functions/getimages");
     let b = await a.json();
     for (const element of b) {
-        let fet = await fetch(`http://localhost:3000/${element}`)
+        let fet = await fetch(`http://localhost:8888/.netlify/functions/getslug?slug=${element}`)
         let response = await fet.json();
-        for (const links of response) {
+        console.log(response);
+        for (const links of response.images) {
+            console.log(links);
             if (links.endsWith(".webp")) {
                 let a = links.split("+")
                 document.querySelector(".products").innerHTML += ` <div class="sho">
@@ -16,7 +17,7 @@
                     </span>
                 </div>
 
-                <img src="assets/Images/${element}/${links}" alt="Shoes">
+                <img src="public/assets/Images/${element}/${links}" alt="Shoes">
             </div>
             <span>${a[0]} ${a[1]}</span>
             <span>Men Foot Wear</span>
@@ -87,5 +88,3 @@
 document.querySelector(".relative span").addEventListener("click", () => {
     document.querySelector(".cart").style.display = "block";
 })
-
-

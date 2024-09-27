@@ -3,26 +3,18 @@ const path = require("path");
 
 exports.handler = async (event) => {
   try {
-    const slug = event.queryStringParameters.slug; 
-    const imagesDir = path.join(__dirname, `../../public/assets/images/${slug}/`); 
-
-    console.log("Requested slug:", slug);
-    console.log("Images directory:", imagesDir);
-    console.log("Current working directory:", process.cwd());
+    const { queryStringParameters } = event;
+    const slug = queryStringParameters && queryStringParameters.slug; // Get slug from query parameters
+    const imagesDir = path.join(process.cwd(), "public/assets/images", slug);
 
     if (!slug) {
       return {
         statusCode: 400,
-        headers: {
-          'Access-Control-Allow-Origin': '*', 
-          'Access-Control-Allow-Headers': 'Content-Type',
-        },
         body: JSON.stringify({ error: "Slug is required" }),
       };
     }
 
     if (!fs.existsSync(imagesDir)) {
-      console.error(`Directory not found: ${imagesDir}`);
       throw new Error(`Directory not found: ${imagesDir}`);
     }
 
@@ -30,6 +22,7 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       headers: {
+        'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': 'Content-Type',
       },
       body: JSON.stringify(images),

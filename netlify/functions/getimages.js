@@ -1,26 +1,15 @@
 const fs = require("fs");
 const path = require("path");
 
-exports.handler = async (event, context) => {
+exports.handler = async (event) => {
   try {
-    let imagesDir;
-
-    if (process.env.NETLIFY) {
-      // We're on Netlify
-      imagesDir = path.join(process.cwd(), "public/assets/images/");
-    } else {
-      // We're running locally
-      imagesDir = path.join(__dirname, "../../public/assets/images/");
-    }
-
-    console.log("Images directory:", imagesDir);
+    const imagesDir = path.join(process.cwd(), "public/assets/images");
 
     if (!fs.existsSync(imagesDir)) {
       throw new Error(`Images directory not found: ${imagesDir}`);
     }
 
     const images = fs.readdirSync(imagesDir);
-
     return {
       statusCode: 200,
       headers: {
