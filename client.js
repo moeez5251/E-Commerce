@@ -181,6 +181,11 @@ document.querySelector(".inp").addEventListener("input", (e) => {
             }
         })
         .catch(() => {
+            if (e.target.value.trim() == "") {
+                document.querySelector(".products").innerHTML = "";
+                main();
+                return;
+            }
             document.querySelector(".products").innerHTML = `<img src="public/assets/other/Not-found.png" ></img>`
             console.clear();
         })
