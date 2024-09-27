@@ -1,13 +1,11 @@
 (async function main() {
-    let a = await fetch("http://localhost:8888/.netlify/functions/getimages");
+    let a = await fetch("https://stridestyle.netlify.app/.netlify/functions/getimages");
     let b = await a.json();
     document.querySelector(".products").innerHTML="";
     for (const element of b) {
-        let fet = await fetch(`http://localhost:8888/.netlify/functions/getslug?slug=${element}`)
+        let fet = await fetch(`https://stridestyle.netlify.app/.netlify/functions/getslug?slug=${element}`)
         let response = await fet.json();
-        console.log(response);
         for (const links of response) {
-            console.log(links);
             if (links.endsWith(".webp")) {
                 let a = links.split("+")
                 document.querySelector(".products").innerHTML += ` <div class="sho">
@@ -50,25 +48,26 @@
             <span class="Prices">${e.querySelector(".Price").innerHTML}</span>
             </div>
                     `
-                    document.querySelectorAll(".item").forEach(e => {
-                        e.querySelector(".plus").addEventListener("click", () => {
-                            e.querySelector(".val").innerHTML++;
-                            e.querySelector(".Prices").innerHTML = e.querySelector(".val").innerHTML * e.querySelector(".Prices").innerHTML.split("$")[0] + "$";
+                    document.querySelectorAll(".item").forEach(a => {
+                        a.querySelector(".plus").addEventListener("click", () => {
+                            a.querySelector(".val").innerHTML++;
+                            a.querySelector(".Prices").innerHTML = a.querySelector(".val").innerHTML*e.querySelector(".Price").innerHTML.split("$")[0]+" $";
+
                         })
 
-                        e.querySelector(".min").addEventListener("click", () => {
+                        a.querySelector(".min").addEventListener("click", () => {
 
-                            if (e.querySelector(".val").innerHTML <= 0) {
-                                e.querySelector(".min").classList.add("disabled");
+                            if (a.querySelector(".val").innerHTML <= 1) {
+                                a.querySelector(".min").classList.add("disabled");
                                 if (confirm("Do You Want to Delete Item !")) {
-                                    e.remove();
+                                    a.remove();
                                     document.querySelector(".ab").innerHTML--;
 
                                 }
                                 return;
                             }
-                            e.querySelector(".val").innerHTML--;
-                            e.querySelector(".Prices").innerHTML = e.querySelector(".val").innerHTML * e.querySelector(".Prices").innerHTML.split("$")[0] + "$";
+                            a.querySelector(".val").innerHTML--;
+                            a.querySelector(".Prices").innerHTML = a.querySelector(".val").innerHTML*e.querySelector(".Price").innerHTML.split("$")[0]+" $";
                         })
 
                     })
