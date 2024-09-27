@@ -119,6 +119,7 @@ nav {
     gap: 10px;
     height: 65vh;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .sho {
@@ -243,7 +244,7 @@ nav {
 .alert {
     position: absolute;
     top: 20%;
-    left: -100%;
+    left: -200%;
     transition: all 0.2s;
 }
 
@@ -336,12 +337,26 @@ nav {
     }
   }
   @media screen and (max-width:500px) {
-      
+    .success{
+        width: 240px;
+    }
+      .success__title{
+        font-size: 11px;
+      }
       .item{
           justify-content: center;
           gap: 25px;
       }
+      .alert{
+        top: 35%;
+    }
     .animate{
-        left: 20vw;
+        left: 15%;
+    }
+    .inp{
+        width: 70%;
+    }
+    nav{
+        padding: 3px 0;
     }
   }
