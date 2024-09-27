@@ -3,10 +3,8 @@ const path = require("path");
 
 exports.handler = async (event, context) => {
   try {
-    const imagesDir = path.join(__dirname, "../../assets/images/");
-    console.log(imagesDir);
-    console.log(path.join(__dirname, "../../public/assets/images/"))
-    console.log(path.join(__dirname, "/assets/images/"));
+    const imagesDir =path.join(__dirname, "../../public/assets/images/");
+    
     if (!fs.existsSync(imagesDir)) {
       throw new Error(`Images directory not found: ${imagesDir}`);
     }
@@ -24,6 +22,7 @@ exports.handler = async (event, context) => {
   } catch (error) {
     console.error("Error reading images directory:", error.message);
     return {
+      statusCode: 500,
       headers: {
         'Access-Control-Allow-Origin': '*', 
         'Access-Control-Allow-Headers': 'Content-Type',
