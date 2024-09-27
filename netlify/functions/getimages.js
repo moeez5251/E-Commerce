@@ -24,7 +24,6 @@ exports.handler = async (event, context) => {
   } catch (error) {
     console.error("Error reading images directory:", error.message);
     return {
-      statusCode: 500,
       headers: {
         'Access-Control-Allow-Origin': '*', 
         'Access-Control-Allow-Headers': 'Content-Type',
