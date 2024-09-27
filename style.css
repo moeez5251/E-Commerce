@@ -15,6 +15,7 @@
 ::-webkit-scrollbar-thumb {
     background-color: rgb(58, 57, 57);
     border-radius: 50px;
+    width: 5px;
 }
 
 ::-webkit-scrollbar {
@@ -117,7 +118,7 @@ nav {
     justify-items: center;
     gap: 10px;
     height: 65vh;
-    overflow: auto;
+    overflow-y: auto;
 }
 
 .sho {
@@ -176,10 +177,10 @@ nav {
 
 .cart {
     position: fixed;
-    top: 30%;
-    left: 8%;
+    top: 11vw;
+    left: 11vw;
     background: #f7f4f0;
-    width: 80%;
+    width: 80vw;
     border-radius: 50px;
     max-height: 60vh;
     text-align: center;
@@ -242,12 +243,12 @@ nav {
 .alert {
     position: absolute;
     top: 20%;
-    right: -100%;
+    left: -100%;
     transition: all 0.2s;
 }
 
 .animate {
-    right: 37%;
+    left: 37%;
 }
 
 .success {
@@ -324,5 +325,23 @@ nav {
       width: 0;
       right: 0;
       left: unset;
+    }
+  }
+  @media screen and (max-width:1100px) {
+    .cart{
+        top: 30%;
+    }
+    .animate{
+        left: 35vw;
+    }
+  }
+  @media screen and (max-width:500px) {
+      
+      .item{
+          justify-content: center;
+          gap: 25px;
+      }
+    .animate{
+        left: 20vw;
     }
   }
