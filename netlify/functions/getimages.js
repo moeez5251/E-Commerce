@@ -3,7 +3,7 @@ const path = require("path");
 
 exports.handler = async (event) => {
   try {
-    const imagesDir = path.join( __dirname,"../../","public/assets/images");
+    const imagesDir = path.join( __dirname,"../../","assets/images");
     console.log(imagesDir);
     if (!fs.existsSync(imagesDir)) {
       throw new Error(`Images directory not found: ${imagesDir}`);
