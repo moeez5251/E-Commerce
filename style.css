@@ -205,7 +205,7 @@ nav {
 
 .cart>span {
     position: absolute;
-    top: 7px;
+    top: 3px;
     right: 46px;
     font-size: 30px;
     font-weight: bold;
@@ -414,7 +414,7 @@ nav {
         top: 30%;
     }   
     .animate{
-        right: 28%;
+        right: 26%;
     }
 
 }
