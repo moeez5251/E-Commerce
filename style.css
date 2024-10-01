@@ -412,11 +412,11 @@ nav {
 @media screen and (max-width:1100px) {
     .cart {
         top: 30%;
+    }   
+    .animate{
+        right: 28%;
     }
 
-    .animate {
-        left: 35vw;
-    }
 }
 
 @media screen and (max-width:500px) {
@@ -433,13 +433,8 @@ nav {
         gap: 25px;
     }
 
-    .alert {
-        top: 28%;
-    }
+   
 
-    .animate {
-        left: 15%;
-    }
 
     .inp {
         width: 70%;
