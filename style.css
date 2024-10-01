@@ -433,8 +433,13 @@ nav {
         gap: 25px;
     }
 
+        .cart> span{
+            padding: 0;
+        }
    
-
+    .animate{
+        right: 10%;
+    }
 
     .inp {
         width: 70%;
