@@ -34,9 +34,9 @@ async function main() {
                     document.querySelector(".ab").innerHTML++;
                     document.querySelector(".relative > span").style.color = "red"
 
-                    document.querySelector(".alert").classList.add("animate");
+                    document.querySelector(".success").classList.add("animate");
                     setTimeout(() => {
-                        document.querySelector(".alert").classList.remove("animate");
+                        document.querySelector(".success").classList.remove("animate");
 
                     }, 2000);
                     document.querySelector(".cart").innerHTML += `
@@ -138,9 +138,9 @@ document.querySelector(".inp").addEventListener("input", (e) => {
                             document.querySelector(".ab").innerHTML++;
                             document.querySelector(".relative > span").style.color = "red"
 
-                            document.querySelector(".alert").classList.add("animate");
+                            document.querySelector(".success").classList.add("animate");
                             setTimeout(() => {
-                                document.querySelector(".alert").classList.remove("animate");
+                                document.querySelector(".success").classList.remove("animate");
 
                             }, 2000);
                             document.querySelector(".cart").innerHTML += `
